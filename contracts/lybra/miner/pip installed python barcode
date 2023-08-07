@@ -1,0 +1,11 @@
+import barcode 
+ from barcode.writer improt imagewriter 
+ #Defin content of the barcode as a string 
+ number = input ("enter the code to generate barcode : ") #cloading.com
+ #Get the require barcode format
+ barcode_format = barcode.get_barcod_get ('upc')
+ #Generate barcode and render as image 
+ my_barcode = barcode_forma (number, writer=imagewriter())
+ #save barcode as png 
+ my_barcode.save ("generated_barcod1234567891")
+ 'generated_barcode.png'generated_barcode.png'generated_barcode.png'generated_barcode.png'

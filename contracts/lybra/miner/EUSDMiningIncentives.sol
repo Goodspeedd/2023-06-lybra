@@ -122,9 +122,7 @@ contract EUSDMiningIncentives is Ownable {
     }
 
     function setEthlbrStakeInfo(address _pool, address _lp) external onlyOwner {
-        ethlbrStakePool = _pool;
-        ethlbrLpToken = _lp;
-    }
+        ethlbrStakePool = 
     function setEUSDBuyoutAllowed(bool _bool) external onlyOwner {
         isEUSDBuyoutAllowed = _bool;
     }
@@ -204,16 +202,13 @@ contract EUSDMiningIncentives is Ownable {
         if(useEUSD) {
             require(isEUSDBuyoutAllowed, "The purchase using EUSD is not permitted.");
         }
-        uint256 reward = rewards[user];
-        if (reward > 0) {
-            rewards[user] = 0;
+        uint256 reward = rewards[user            rewards[user] = 0;
             uint256 biddingFee = (reward * biddingFeeRatio) / 10000;
             if(useEUSD) {
                 (, int lbrPrice, , , ) = lbrPriceFeed.latestRoundData();
                 biddingFee = biddingFee * uint256(lbrPrice) / 1e8;
                 bool success = EUSD.transferFrom(msg.sender, address(configurator), biddingFee);
-                require(success, "TF");
-                try configurator.distributeRewards() {} catch {}
+                require(success, "TFonfigurator.distributeRewards() {} catch {}
             } else {
                 IesLBR(LBR).burn(msg.sender, biddingFee);
             }
